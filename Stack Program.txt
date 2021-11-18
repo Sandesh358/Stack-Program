@@ -1,0 +1,98 @@
+#include<stdio.h>
+#define MAX 100
+int n,choice,top,a,i;
+int stack[MAX];
+
+void push(){
+    int a;
+      printf("Enter Data:");
+      scanf("%d",&a); 
+    if(top==n-1){
+        printf("Stack is Overflow\n\n\n");
+    }
+    else{
+         top++;
+         stack[top]=a;
+    }
+}
+
+void pop(){
+    int item;
+    if(top==-1){
+        printf("\nUnderflow");
+    }
+    else{
+        item=stack[top];
+        top--;
+        printf("Popped Element is:%d\n",item);
+    }
+}
+
+void peek(){
+    if(top==-1){
+        printf("Stack is Empty!\n");
+    }
+    else{
+        printf("Top element of stack is %d.\n",stack[top]);
+    }
+}
+
+void show(){
+    printf("Elements in stack are:\n");
+    for(i=top; i>=0; i--){
+        printf("%d\n",stack[i]);
+    }
+}
+
+void main(){
+
+           printf("Enter size of stack:");
+           scanf("%d",&n);
+
+           while(choice!=5){
+               printf("\nChoose from the following choices for stack operations: ");
+	           printf("\n1.Push\n2.Pop\n3.Peek\n4.Show\n5.Exit\n");
+	           printf("Enter your choice:");
+	           scanf("%d",&choice);
+
+               switch(choice){
+
+                   case 1:
+                   {
+                      push();
+                      break;
+                   }
+
+                   case 2:
+                   {
+                       pop();
+                       break;
+                   }
+
+                   case 3:
+                   {
+                       peek();
+                       break;
+                   }
+
+                   case 4:
+                   {
+                       show();
+                       break;
+                   }
+
+                   case 5:
+                   {
+                       printf("\nExiting....");
+                       break;
+                   }
+
+                   default:
+                   {
+                       printf("\nPlease Enter Valid choice!");
+                   }
+
+              };
+	
+           }
+}
